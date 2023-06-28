@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <!-- Contact Start -->
+    <div class="container-fluid">
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Register Here</span></h2>
+        <div class="row px-xl-5">
+            <div class="col-lg-12 mb-5">
+                <div class="contact-form bg-light p-30">
+                    <form action="register" method="post" class="signin-form">
+                        {% csrf_token %}
+                        <div class="input-grids">
+                            <div class="row">
+                                <div class="col-sm-6">
+
+                                    <input type="text" name="firstname" id="w3lName" placeholder="First Name"
+                                        class="form-control" required="" />
+                                        <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" name="lastname" id="w3lSender" placeholder="Last Name"
+                                        class="form-control" required="" />
+                                        <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                            <input type="text" name="username" id="w3lSubect" placeholder="User Name"
+                                class="form-control" required="" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                            <input type="email" name="email" id="w3lWebsite" placeholder="Email Address"
+                                class="form-control" required="" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input type="password" name="password1" id="w3lName" placeholder="Password"
+                                    class="form-control" required="" />
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="password" name="password2" id="w3lSender" placeholder="Confirm password"
+                                    class="form-control" required="" />
+                                    <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+
+                        
+                        <!-- <div class="form-input">
+                            <textarea name="w3lMessage" id="w3lMessage" placeholder="Type your message here"
+                                required=""></textarea>
+                        </div> -->
+                        <div class="text-start">
+                            <p class="help-block text-danger"></p>
+                            {% for message in messages %}
+                            <h4 class="title-style text-center mb-5" style="color: gold">{{message}}</h4>
+                            
+                            {% endfor %}
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="text-start">
+                            <button type="submit" value ="registeration" class="btn btn-primary py-2 px-4">Register</button>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </form>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+    {% endblock %}

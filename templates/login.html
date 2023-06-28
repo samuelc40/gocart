@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <!-- Contact Start -->
+    <div class="container-fluid">
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Login Here</span></h2>
+        <div class="row px-xl-5">
+            <div class="col-lg-12 mb-5">
+                <div class="contact-form bg-light p-30">
+                    <form action="{% url 'login' %}" method="post" class="signin-form">
+                        {% csrf_token %}
+                    
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input type="text" name="username" id="w3lName" placeholder="Username"
+                                    class="form-control" required="" />
+                                    <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="password" name="password" id="w3lSender" placeholder="Password"
+                                    class="form-control" required="" />
+                                    <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                    
+                        
+                        <!-- <div class="form-input">
+                            <textarea name="w3lMessage" id="w3lMessage" placeholder="Type your message here"
+                                required=""></textarea>
+                        </div> -->
+                        <div class="text-start">
+                            <p class="help-block text-danger"></p>
+                            {% for message in messages %}
+                            <h4 class="title-style text-center mb-5" style="color: gold">{{message}}</h4>
+                            
+                            {% endfor %}
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="text-start">
+                            <button type="submit" value ="registeration" class="btn btn-primary py-2 px-4">Login</button>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </form>
+                    <h6 class="title-style text-center mb-5">Don't have an account? <span style="color: rgb(117, 116, 116);">Click on the Register above</span></h6>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+    {% endblock %}
+
+
